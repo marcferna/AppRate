@@ -18,7 +18,11 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.text.format.DateUtils;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
+
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 
 public class AppRate implements android.content.DialogInterface.OnClickListener, OnCancelListener {
 
@@ -27,7 +31,7 @@ public class AppRate implements android.content.DialogInterface.OnClickListener,
 	private Activity hostActivity;
 	private OnClickListener clickListener;
 	private SharedPreferences preferences;
-	private AlertDialog.Builder dialogBuilder = null;
+	private MaterialDialog.Builder dialogBuilder = null;
 
 	private long minLaunchesUntilPrompt = 0;
 	private long minDaysUntilPrompt = 0;
@@ -81,8 +85,8 @@ public class AppRate implements android.content.DialogInterface.OnClickListener,
 	 * @param customBuilder The custom dialog you want to use as the rate dialog.
 	 * @return This {@link AppRate} object to allow chaining.
 	 */
-	public AppRate setCustomDialog(AlertDialog.Builder customBuilder) {
-		dialogBuilder = customBuilder;
+	public AppRate setCustomDialog(MaterialDialog.Builder customBuilder) {
+        dialogBuilder = customBuilder;
 		return this;
 	}
 
@@ -170,34 +174,34 @@ public class AppRate implements android.content.DialogInterface.OnClickListener,
 		String remindLater = "Remind me later";
 		String dismiss = "No thanks";
 
-		new AlertDialog.Builder(hostActivity)
-				.setTitle(title)
-				.setMessage(message)
-				.setPositiveButton(rate, this)
-				.setNegativeButton(dismiss, this)
-				.setNeutralButton(remindLater, this)
-				.setOnCancelListener(this)
-				.create().show();
+		new MaterialDialog.Builder(hostActivity)
+				.title(title)
+				.content(message)
+				.positiveText(rate)
+				.neutralText(remindLater)
+				.negativeText(dismiss)
+				.show();
 	}
 
 	/**
 	 * Show the custom rate dialog.
 	 * @return
 	 */
-	private void showDialog(AlertDialog.Builder builder) {
+	private void showDialog(MaterialDialog.Builder builder) {
 
 		Log.d(TAG, "Create custom dialog.");
 
-		AlertDialog dialog = builder.create();
+		MaterialDialog dialog = builder.build();
 		dialog.show();
 
-		String rate = (String) dialog.getButton(AlertDialog.BUTTON_POSITIVE).getText();
-		String remindLater = (String) dialog.getButton(AlertDialog.BUTTON_NEUTRAL).getText();
-		String dismiss = (String) dialog.getButton(AlertDialog.BUTTON_NEGATIVE).getText();
+		View rate = dialog.getActionButton(DialogAction.POSITIVE);
+		View remindLater = dialog.getActionButton(DialogAction.NEUTRAL);
+		View dismiss = dialog.getActionButton(DialogAction.NEGATIVE);
 
-		dialog.setButton(AlertDialog.BUTTON_POSITIVE, rate, this);
-		dialog.setButton(AlertDialog.BUTTON_NEUTRAL, remindLater, this);
-		dialog.setButton(AlertDialog.BUTTON_NEGATIVE, dismiss, this);
+
+		dialog.setActionButton(DialogAction.POSITIVE,rate.toString());
+		dialog.setActionButton(DialogAction.NEUTRAL,remindLater.toString());
+		dialog.setActionButton(DialogAction.NEGATIVE,dismiss.toString());
 
 		dialog.setOnCancelListener(this);
 	}

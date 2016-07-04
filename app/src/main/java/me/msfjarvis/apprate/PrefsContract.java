@@ -1,4 +1,4 @@
-package com.tjeannin.apprate;
+package me.msfjarvis.apprate;
 
 public class PrefsContract {
 

@@ -5,6 +5,9 @@ AppRate
 
 * AppRate shows a customizable rate dialog according to your chosen settings.
 
+* This fork of the library has been reworked to show consistent Material Design dialogs down to API level 8 
+
+
 How to install and use
 ----------------------
 

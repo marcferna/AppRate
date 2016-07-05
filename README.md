@@ -27,7 +27,7 @@ add the dependency
 
 ```
 dependencies {
-	        compile 'com.github.MSF-Jarvis:AppRate:-SNAPSHOT'
+		compile 'com.github.MSF-Jarvis:AppRate:v1.0'
 	}
 ```
 

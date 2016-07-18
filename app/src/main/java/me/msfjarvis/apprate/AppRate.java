@@ -26,7 +26,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 
 public class AppRate implements android.content.DialogInterface.OnClickListener, OnCancelListener {
 
-	private static final String TAG = "AppRater";
+	private static final String TAG = "AppRate";
 
 	private Activity hostActivity;
 	private OnClickListener clickListener;

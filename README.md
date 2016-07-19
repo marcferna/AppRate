@@ -1,4 +1,4 @@
-AppRate
+AppRate	![Travis-CI Badge](https://travis-ci.org/MSF-Jarvis/AppRate.svg?branch=develop)
 =======
 
 * AppRate allows your users to rate your application.
@@ -27,7 +27,7 @@ add the dependency
 
 ```
 dependencies {
-		compile 'com.github.MSF-Jarvis:AppRate:v1.0'
+		compile 'com.github.MSF-Jarvis:AppRate:v1.1'
 	}
 ```
 
@@ -60,7 +60,7 @@ new AppRate(this)
 * You can **customize** all the messages and buttons of **the rate dialog**.
 
 ```java
-AlertDialog.Builder builder = new AlertDialog.Builder(this)
+AlertDialogWrapper.Builder builder = new AlertDialogWrapper.Builder(this)
 	.setCustomTitle(myCustomTitleView)
 	.setIcon(R.drawable.my_custom_icon)
 	.setMessage("My custom message")

@@ -1,0 +1,26 @@
+language: android
+
+jdk:
+ - openjdk7
+
+android:
+  components:
+    - tools
+    - build-tools-24.0.0
+    - android-23
+
+  licenses:
+    - '.+'
+
+script:
+    - ./gradlew clean assemble --stacktrace
+
+notifications:
+  email: false
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.m2
+    - $HOME/.gradle

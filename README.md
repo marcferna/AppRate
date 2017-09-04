@@ -1,4 +1,4 @@
-AppRate	![Travis-CI Badge](https://travis-ci.org/MSF-Jarvis/AppRate.svg?branch=develop) [![](https://jitpack.io/v/MSF-Jarvis/AppRate.svg)](https://jitpack.io/#MSF-Jarvis/AppRate)
+AppRate	[![Travis-CI Badge](https://travis-ci.org/MSF-Jarvis/AppRate.svg?branch=develop)](https://travis-ci.org/MSF-Jarvis/AppRate) [![](https://jitpack.io/v/MSF-Jarvis/AppRate.svg)](https://jitpack.io/#MSF-Jarvis/AppRate)
 =======
 
 * AppRate allows your users to rate your application.
